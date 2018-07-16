@@ -3,23 +3,23 @@
 FROM ubuntu:16.04
 MAINTAINER Mirek
 
-### Atomic/OpenShift Labels - https://github.com/projectatomic/ContainerApplicationGenericLabels
-LABEL name="acme/starter-arbitrary-uid" \
-      maintainer="refarch-feedback@redhat.com" \
-      vendor="Acme Corp" \
-      version="3.7" \
-      release="1" \
-      summary="Acme Corp's Starter app" \
-      description="Starter app will do ....." \
-### Required labels above - recommended below
-      url="https://www.acme.io" \
-      run='docker run -tdi --name ${NAME} \
-      -u 123456 \
-      ${IMAGE}' \
-      io.k8s.description="Starter app will do ....." \
-      io.k8s.display-name="Starter app" \
-      io.openshift.expose-services="" \
-      io.openshift.tags="acme,starter-arbitrary-uid,starter,arbitrary,uid"
+# ### Atomic/OpenShift Labels - https://github.com/projectatomic/ContainerApplicationGenericLabels
+# LABEL name="acme/starter-arbitrary-uid" \
+#       maintainer="refarch-feedback@redhat.com" \
+#       vendor="Acme Corp" \
+#       version="3.7" \
+#       release="1" \
+#       summary="Acme Corp's Starter app" \
+#       description="Starter app will do ....." \
+# ### Required labels above - recommended below
+#       url="https://www.acme.io" \
+#       run='docker run -tdi --name ${NAME} \
+#       -u 123456 \
+#       ${IMAGE}' \
+#       io.k8s.description="Starter app will do ....." \
+#       io.k8s.display-name="Starter app" \
+#       io.openshift.expose-services="" \
+#       io.openshift.tags="acme,starter-arbitrary-uid,starter,arbitrary,uid"
 
 ### Atomic Help File - Write in Markdown, it will be converted to man format at build time.
 ### https://github.com/projectatomic/container-best-practices/blob/master/creating/help.adoc
