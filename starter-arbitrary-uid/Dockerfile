@@ -55,5 +55,9 @@ WORKDIR ${APP_ROOT}
 
 ### user name recognition at runtime w/ an arbitrary uid - for OpenShift deployments
 ENTRYPOINT [ "uid_entrypoint" ]
+
+# create volumes inside the container
 VOLUME ${APP_ROOT}/logs ${APP_ROOT}/data
+
+# default startup app
 CMD /bin/bash
