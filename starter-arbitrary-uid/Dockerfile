@@ -41,7 +41,10 @@ MAINTAINER Mirek
 
 ### Setup user for build execution and application runtime
 ENV APP_ROOT=/opt/app-root
-ENV PATH=${APP_ROOT}/bin:${PATH} HOME=${APP_ROOT}
+# add app_root/bin to path
+ENV HOME=${APP_ROOT}
+ENV PATH=${APP_ROOT}/bin:${PATH}
+
 COPY bin/ ${APP_ROOT}/bin/
 RUN chmod -R u+x ${APP_ROOT}/bin && \
     chgrp -R 0 ${APP_ROOT} && \
