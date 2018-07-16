@@ -40,27 +40,29 @@ MAINTAINER Mirek
 #     yum clean all
 
 ### Setup user for build execution and application runtime
-ENV APP_ROOT=/opt/app-root
+# ENV APP_ROOT=/opt/app-root
+ENV HOME=/opt/app-root
 # add app_root/bin to path
-ENV HOME=${APP_ROOT}
-ENV PATH=${APP_ROOT}/bin:${PATH}
+# ENV HOME=${APP_ROOT}
+ENV PATH=${HOME}/bin:${PATH}
 
-COPY bin/ ${APP_ROOT}/bin/
-RUN chmod -R u+x ${APP_ROOT}/bin && \
-    chgrp -R 0 ${APP_ROOT} && \
-    chmod -R g=u ${APP_ROOT} /etc/passwd
+COPY bin/ ${HOME}/bin/
+RUN chmod -R u+x ${HOME}/bin && \
+    chgrp -R 0 ${HOME} && \
+    chmod -R g=u ${HOME} /etc/passwd
 
 ### Containers should NOT run as root as a good practice
 # note that Openshift best practice is to use a user number not user name
 ARG MY_UID=10001
 USER ${MY_UID}
-WORKDIR ${APP_ROOT}
+
+WORKDIR ${HOME}
 
 ### user name recognition at runtime w/ an arbitrary uid - for OpenShift deployments
 ENTRYPOINT [ "uid_entrypoint" ]
 
 # create volumes inside the container
-VOLUME ${APP_ROOT}/logs ${APP_ROOT}/data
+VOLUME ${HOME}/logs ${HOME}/data
 
 # default startup app
 CMD /bin/bash
