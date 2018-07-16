@@ -48,7 +48,9 @@ RUN chmod -R u+x ${APP_ROOT}/bin && \
     chmod -R g=u ${APP_ROOT} /etc/passwd
 
 ### Containers should NOT run as root as a good practice
-USER 10001
+# note that Openshift best practice is to use a user number not user name
+ARG MY_UID=10001
+USER ${MY_UID}
 WORKDIR ${APP_ROOT}
 
 ### user name recognition at runtime w/ an arbitrary uid - for OpenShift deployments
