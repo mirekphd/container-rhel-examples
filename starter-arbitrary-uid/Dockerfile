@@ -1,6 +1,6 @@
 # FROM registry.access.redhat.com/rhel7
 FROM centos:7
-MAINTAINER Red Hat Systems Engineering <refarch-feedback@redhat.com>
+MAINTAINER Mirek
 
 ### Atomic/OpenShift Labels - https://github.com/projectatomic/ContainerApplicationGenericLabels
 LABEL name="acme/starter-arbitrary-uid" \
@@ -53,4 +53,4 @@ WORKDIR ${APP_ROOT}
 ### user name recognition at runtime w/ an arbitrary uid - for OpenShift deployments
 ENTRYPOINT [ "uid_entrypoint" ]
 VOLUME ${APP_ROOT}/logs ${APP_ROOT}/data
-CMD run
+CMD /bin/bash
