@@ -21,9 +21,9 @@ MAINTAINER Mirek
 #       io.openshift.expose-services="" \
 #       io.openshift.tags="acme,starter-arbitrary-uid,starter,arbitrary,uid"
 
-### Atomic Help File - Write in Markdown, it will be converted to man format at build time.
-### https://github.com/projectatomic/container-best-practices/blob/master/creating/help.adoc
-COPY help.md /tmp/
+# ### Atomic Help File - Write in Markdown, it will be converted to man format at build time.
+# ### https://github.com/projectatomic/container-best-practices/blob/master/creating/help.adoc
+# COPY help.md /tmp/
 
 ### add licenses to this directory
 COPY licenses /licenses
