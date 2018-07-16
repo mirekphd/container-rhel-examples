@@ -1,5 +1,6 @@
 # FROM registry.access.redhat.com/rhel7
-FROM centos:7
+# FROM centos:7
+FROM ubuntu:16.04
 MAINTAINER Mirek
 
 ### Atomic/OpenShift Labels - https://github.com/projectatomic/ContainerApplicationGenericLabels
